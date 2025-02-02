@@ -6,7 +6,7 @@ from answer_engine_src.answer_engine import (
     AnswerEngineResponseWithArticles,
 )
 
-st.title("(Upcoming) Cervical Cancer Answer Engine")
+st.title("Cervical Cancer Answer Engine")
 st.caption(
     "A ChatGpt based answer engine for answering cervical cancer related questions using OpenAlex citations as the reference."
 )

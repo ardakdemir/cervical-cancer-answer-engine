@@ -10,10 +10,10 @@ api_key = os.environ.get("openai_api_key")
 client = OpenAI(api_key=api_key or st.secrets["OPENAI_API_KEY"])
 
 
-client = OpenAI(
-    # This is the default and can be omitted
-    api_key=api_key,
-)
+# client = OpenAI(
+#     # This is the default and can be omitted
+#     api_key=api_key,
+# )
 
 
 def get_final_messages_for_answer_generation(

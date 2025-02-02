@@ -94,7 +94,17 @@ for i, line in enumerate(DPRK_QUESTION_LIST_STR.strip().split("\n")):
     question = line.split(f"{i+1}.")[1].strip()
     DPRK_DEFAULT_QUESTION_LIST.append(question)
 
+CERVICAL_QUESTIONS_STR = """
+What are the latest advancements in the early detection of cervical cancer beyond traditional Pap smears and HPV testing?
+How effective are current HPV vaccines in preventing cervical cancer across different age groups and HPV strains?
+What are the genetic and molecular markers associated with increased risk or progression of cervical cancer?
+How do socioeconomic factors and access to healthcare influence cervical cancer incidence and outcomes globally?
+What are the emerging targeted therapies and immunotherapies being developed for advanced-stage cervical cancer?
+How does the cervical microbiome impact the development or prevention of cervical cancer?
+What role do lifestyle factors, such as smoking or diet, play in the risk of developing cervical cancer?
+Are there any promising non-invasive screening methods being researched for low-resource settings?
+How does the immune system’s response to HPV infection differ in individuals who develop cervical cancer compared to those who clear the infection naturally?
+What are the challenges and successes in implementing cervical cancer screening programs in low- and middle-income countries?
+"""
 
-CERVICAL_QUESTIONS = [
-    "What are the symptoms of cervical cancer?",
-]
+CERVICAL_QUESTIONS = CERVICAL_QUESTIONS_STR.strip().split("\n")

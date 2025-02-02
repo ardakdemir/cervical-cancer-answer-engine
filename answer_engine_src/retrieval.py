@@ -18,27 +18,16 @@ from answer_engine_src.preprocessing import TextPreprocessor
 import pickle as pkl
 import gzip
 
-# if not os.path.exists(PARSED_ARTICLES_PROCESSED_SAVE_PATH):
-#     print("Downloading processed articles from ", PARSED_ARTICLES_PROCESSED_GDRIVE_URL)
-#     get_gdrive_file(
-#         PARSED_ARTICLES_PROCESSED_GDRIVE_URL, PARSED_ARTICLES_PROCESSED_SAVE_PATH
-#     )
-# all_articles = df_to_article_list(pd.read_csv(PARSED_ARTICLES_PATH))
-# print("Saving to ",PARSED_ARTICLES_PROCESSED_SAVE_PATH)
-# with gzip.open(PARSED_ARTICLES_PROCESSED_SAVE_PATH, 'wb') as f:
-#     pkl.dump(all_articles, f)
+if not os.path.exists(PARSED_ARTICLES_PROCESSED_SAVE_PATH):
+    print("Downloading processed articles from ", PARSED_ARTICLES_PROCESSED_GDRIVE_URL)
+    get_gdrive_file(
+        PARSED_ARTICLES_PROCESSED_GDRIVE_URL, PARSED_ARTICLES_PROCESSED_SAVE_PATH
+    )
 
-# print("Loading processed articles from ", PARSED_ARTICLES_PROCESSED_SAVE_PATH)
-# with gzip.open(PARSED_ARTICLES_PROCESSED_SAVE_PATH, "rb") as f:
-#     all_articles = pkl.load(f)
-# print(f"{len(all_articles)=} are loaded")
-
-
-# Change this to your own path and parser if the data changes
-parser = CervicalCancerParser(
-    "data/OpenAlex_cervical_cancer_screening_2008.csv", "data"
-)
-all_articles = parser.load_articles(parser.pickle_path)
+print("Loading processed articles from ", PARSED_ARTICLES_PROCESSED_SAVE_PATH)
+with gzip.open(PARSED_ARTICLES_PROCESSED_SAVE_PATH, "rb") as f:
+    all_articles = pkl.load(f)
+print(f"{len(all_articles)=} are loaded")
 
 
 class RetrievalEngine:
