@@ -4,6 +4,7 @@ import pandas as pd
 import pickle
 from typing import Dict
 from answer_engine_src.definitions import Article
+import csv
 
 
 class CsvToArticleParser(ABC):
@@ -34,7 +35,10 @@ class CsvToArticleParser(ABC):
 
     def parse_csv(self, csv_path: str) -> list[Article]:
         """Read CSV and convert to list of Article objects"""
-        df = pd.read_csv(csv_path)
+        with open(csv_path, mode="r", encoding="utf-8", errors="ignore") as f:
+            reader = csv.DictReader(f)  # Reads rows as dictionaries
+            data = [row for row in reader]  # Convert to list of dicts
+            df = pd.DataFrame.from_records(data)  # Convert to DataFrame
         return self.parse_dataframe(df)
 
     def parse_dataframe(self, df: pd.DataFrame) -> list[Article]:
