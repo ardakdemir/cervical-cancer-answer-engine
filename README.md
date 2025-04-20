@@ -5,7 +5,7 @@ Run me:
 ```
 python3 -m venv venv
 source venv/bin/activate
-python3 generate_remote_files.py
+python3 answer_engine_src/generate_remote_files.py
 streamlit run app.py
 ```
 
